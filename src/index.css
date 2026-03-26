@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Barlow Condensed", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  
+  --color-charcoal: #1F2020;
+  --color-offwhite: #F2F0EB;
+  --color-fit-orange: #FF5C1A;
+  
+  --radius-pill: 50px;
+  --radius-soft: 16px;
+}
+
+@layer base {
+  body {
+    @apply bg-charcoal text-offwhite font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading uppercase font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    @apply bg-charcoal/70 backdrop-blur-xl border-b border-white/5;
+  }
+  
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: fit-content;
+  animation: marquee 30s linear infinite;
+}
